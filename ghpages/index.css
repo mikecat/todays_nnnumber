@@ -1,0 +1,12 @@
+body {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+}
+
+body > div {
+	grid-column: 2;
+}
+
+#tweet_button_area {
+	text-align: center;
+}
