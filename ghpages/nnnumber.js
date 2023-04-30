@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	};
 
 	const getNNNumberOfDay = function(date, seed) {
-		const year = date.getFullYear(), month = date.getMonth() + 1, day = date.getDate();
+		const year = date.getUTCFullYear(), month = date.getUTCMonth() + 1, day = date.getUTCDate();
 		const seedLower = seed >>> 0, seedUpper = (seed / 0x100000000) >>> 0;
 		const rng = new XorshiftRNG(year, (seedUpper << 8) | month, (~seedUpper << 8) | day, seedLower);
 		for (let i = 0; i < 100; i++) rng.randInt();
@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	const setDisplayWithDate = function(date) {
 		const nnnumber = getNNNumberOfDay(date, 7862398878996585);
-		const prefix ="【" + date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日の非負整数】";
+		const prefix ="【" + date.getUTCFullYear() + "年" + (date.getUTCMonth() + 1) + "月" + date.getUTCDate() + "日の非負整数】";
 		setDisplay(prefix, nnnumber, location.href);
 	};
 
