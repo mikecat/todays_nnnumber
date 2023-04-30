@@ -207,5 +207,12 @@ window.addEventListener("DOMContentLoaded", function() {
 		setDisplay(prefix, nnnumber, location.href);
 	};
 
-	setDisplayWithDate(new Date());
+	const serviceStart = new Date("2023-04-30T00:00:00Z");
+	const now = new Date();
+
+	if (now < serviceStart) {
+		nnnumberArea.textContent = "過去ログは未実装です。";
+	} else {
+		setDisplayWithDate(now);
+	}
 });
